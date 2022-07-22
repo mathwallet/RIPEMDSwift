@@ -6,6 +6,8 @@ final class RIPEMDSwiftTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(RIPEMDSwift().text, "Hello, World!")
+        let message = "message".data(using: .utf8)!
+        let hash = try RIPEMD160.hash(message: message)
+        XCTAssertTrue(hash.count == 20)
     }
 }
